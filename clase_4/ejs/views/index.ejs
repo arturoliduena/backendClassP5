@@ -1,0 +1,14 @@
+<!-- A include le pasamos la ruta del archivo que queremos buscar. Vamos a guardar la parte de arriba del html en un archivo separado, que cada una de las páginas que hagamos va a requerir. Esto es mucho mas eficiente porque al ser código que se repite constantemente, tenerlo centralizado en un único archivo nos permite implementar cambios en un solo lugar, que automáticamente derraman a toda la app -->
+
+<% include partials/header.ejs %>
+
+	<h1>Bienvenidos a Express!</h1>
+	<h2>Podés entrar a estas opciones:</h2>
+	<ul>
+		<li><a href="/gustos/<%= nombre %>">Gustos</a></li>
+		<li><a href="/blog/santi">Blog</a></li>
+	</ul>
+
+
+<!-- también separamos la parte de abajo de los html en un archivo aparte porque es código que se repite constantemente -->
+<% include partials/footer.ejs %>

@@ -1,0 +1,18 @@
+<!-- Esta es la parte de arriba de todos los html/ejs que vamos a crear. hasta la apertura del <body> son siempre iguales, así que tiene sentido separarlo en un archivo centralizado, requerido por todos los demás html/ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Header!</title>
+	<!-- traemos la hoja de estilo css usando el tag link. cuando el html se cargua y el browser lee el href del tag link, hace un request a la dirección que indica. dentro de app.js, usando app.use(express.static(__dirname + '/public')); le decimos a express que este tipo de requests a archivos estáticos (como los .css) tiene que buscarlos dentro de la carpeta public. Cuando hace /estilos.css , la / refiere al directorio root, que ahora es public. Es decir, busca dentro de public. -->
+	<link rel="stylesheet" type="text/css" href="/estilo.css">
+
+	<!-- también podemos incluir estilos directamente dentro del header usando el tag <style> pero no es una buena práctica -->
+	<!-- 
+	<style type="text/css">
+	body {
+		background-color: #39A0ED;
+	}
+	</style>
+	-->
+</head>
+<body>

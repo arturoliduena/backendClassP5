@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <h1></h1>
+    <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              Plataforma 5
+            </a>
+
+            <a href="http://localhost:3000/formulario">Nuevo producto</a>
+          </nav>
+
+        <div class="row">
+            <% for(var i in productos){ %>
+            <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<%= productos[i].fotoUrl %>" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= productos[i].nombre %></h5>
+                      <p class="card-text"><%= productos[i].descripcion %></p>
+                      <a href="<%= 'http://localhost:3000/producto/' + productos[i]._id %>" class="btn btn-primary">Go!!!</a>
+                      <a href="<%= 'http://localhost:3000/editar/' + productos[i]._id %>" class="btn btn-primary">Editar!!!</a>
+                      <a href="<%= 'http://localhost:3000/eliminar/' + productos[i]._id %>" class="btn btn-primary">Eliminar!!!</a>
+                    </div>
+                  </div>
+            <% } %>
+        </div>
+</body>
+</html>

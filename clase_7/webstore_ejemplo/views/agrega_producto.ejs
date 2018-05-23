@@ -1,0 +1,24 @@
+<% include partials/header %>
+	<div class="container formulario">  
+	  <form id="contact" action="/agregarproducto" method="post">
+	    <h3>Agregar Producto:</h3>
+	    <h4>Sumá tu producto a la lista de nuestra tienda.</h4>
+	    <fieldset>
+	      <input name="nombre_producto" placeholder="Nombre del producto" type="text" tabindex="1"  autofocus>
+	    </fieldset>
+	    <fieldset>
+	      <input name="precio_producto" placeholder="Precio" type="number" tabindex="2" >
+	    </fieldset>
+	    <fieldset>
+	      <input name="imagen_producto" placeholder="Imagen del producto (url)" type="url" tabindex="3" >
+	    </fieldset>
+	    <fieldset>
+	      <textarea name="descripcion_producto" placeholder="Descripción del producto...." tabindex="4" ></textarea>
+	    </fieldset>
+	    <fieldset>
+	      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
+	    </fieldset>
+	  </form>
+	</div>
+
+<% include partials/footer %>

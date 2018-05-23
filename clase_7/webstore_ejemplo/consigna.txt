@@ -1,0 +1,36 @@
+Concepto CLAVE:
+	- SIEMPRE avanzá de a un paso por vez.
+	- Asegurate de que la app funciona y cambiá de a UNA cosa. 
+	- Probá que lo que estás cambiando funcione antes de avanzar con un segundo cambio.
+	- Empezá probando con algo simple escrito a mano, por ejemplo res.send("testeando"), antes de pasar a algo más complejo, como res.render("index.ejs")
+
+TEMPLATE DE BOOTSTRAP: 
+	- https://blackrockdigital.github.io/startbootstrap-shop-homepage/
+
+Pasos:
+1) crear el servidor con express
+
+2) crear la ruta "/" y probá que funcione usando un res.send. 
+
+3) ahora hacé que renderee un index.ejs. asegurate de crear la carpeta views donde van a estar los archivos que se van a renderear.
+
+4) copiá el template del webstore y asegurate que renderee el html (pasalo a .ejs)
+
+5) configura el express static y guarda los recursos estaticos en la carpeta public. asegurate de que se aplique el css
+
+6) dentro del index.ejs, agrega un loop en que agregue el html de un producto en cada vuelta (copiá de los que ya están)
+
+7) en app.js creá un arreglo con un objeto que represente un producto. el producto debería tener las propiedades precio, nombre, descripcion, foto y reviews. llenalo con contenido inventado a mano. 
+
+8) pasa el arreglo con el producto como variable al index.ejs, para poder usarlo cuando se renderea. probá de acceder a esos valores desde el index.ejs usando <%= %>.
+
+9) dentro del index, reemplazá los valores dentro de los productos que agrega el loop por los que estás pasando desde app.js
+
+10) instalá el paquete faker, y desde app.js hacé que los valores del producto que escribiste a mano se creen usando faker. para las propiedades que tienen números usá Math.random(). Para generar números dentro de un rango, por ejemplo entre 0 y 100, multiplicá Math.random() * 100 (por en número límite).  
+
+11) dentro de app.js, hacé un loop que llene el arreglo de productos con productos llenos de datos random.
+
+12) extraé las partes superior (hasta <body>) e inferior (desde </body>) del index y ponelas como partials en archivos separados. incorporalos con include. 
+
+God mode:
+13) agregá una propiedad "estrellas" al objeto producto que lleve un valor numérico de 1 a 5, y buscá una forma de agregar la cantidad correcta de estrellas con html en el ejs.

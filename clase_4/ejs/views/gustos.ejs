@@ -1,0 +1,20 @@
+<!-- A include le pasamos la ruta del archivo que queremos buscar. Vamos a guardar la parte de arriba del html en un archivo separado, que cada una de las páginas que hagamos va a requerir. Esto es mucho mas eficiente porque al ser código que se repite constantemente, tenerlo centralizado en un único archivo nos permite implementar cambios en un solo lugar, que automáticamente derraman a toda la app -->
+
+<% include partials/header.ejs %>
+
+	<!-- usando el signo igual dentro de <%=  %> incluimos el contenido de javascript en el html -->
+	<h1>Hola <%= nombre %>!</h1>
+
+	<% if (nombre === 'messi') { %>
+		<p>*sos un fuerte crack</p> 
+	<% } %>
+
+	<h2>Gustos de <%= nombre %>:</h2>
+
+		<!-- en cambio usamos <% %> sin el igual para escribir código javascript que tiene que ejecutarse pero no mostrarse en la pantalla -->
+		<% for(var i = 0; i < gustos.length; i++) { %>
+			<li><%= gustos[i] %></li>
+		<% } %>
+
+<!-- también separamos la parte de abajo de los html en un archivo aparte porque es código que se repite constantemente -->
+<% include partials/footer.ejs %>

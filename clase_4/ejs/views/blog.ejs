@@ -1,0 +1,11 @@
+<% include partials/header %>
+	<h1>El blog de <%= nombre %></h1>
+	<h2>Nuevos posteos:</h2>
+	<% for(var i = 0; i < posteos.length; i++) { %>
+		<div class="posteo">
+			<h3 class="titulo"><%= posteos[i].titulo %></h3>
+			<p><%= posteos[i].contenido %></p>
+		</div>
+	<% } %>
+</body>
+</html> 
