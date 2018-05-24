@@ -1,3 +1,4 @@
+```
 Ejercicio de geometría
 
 Hacer un función que permita calcular el área o el perímetro de un rectángulo o una circunferencia.
@@ -39,3 +40,4 @@ Pasos:
 	cálculo('perimeter', 'circle', 2) // return 12.56
 	cálculo('perimeter', 'rectangle', 40, 15) // return 110
 	cálculo('area', 'circle', 6) // return 113.0976
+```
