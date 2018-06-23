@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 var mongoose = require('mongoose'); // Importamos el módulo Mongoose.
-mongoose.connect("mongodb://localhost/allumnos") // Connect se conecta a la bd
+mongoose.connect("mongodb://localhost/alumnos") // Connect se conecta a la bd
 
 
 //tenemos que especificar en qué host está y que base de datos queremos, en este caso alumnos. Si no existe la crea.
