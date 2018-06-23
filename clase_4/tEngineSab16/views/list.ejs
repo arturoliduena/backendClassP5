@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+    <ul>
+        <% for(var i = 0; i < lista.length; i++) { %>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%= lista[i].imagen %>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><%= lista[i].marca %></h5>
+                    <p class="card-text"><%= lista[i].descripcion %></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        <% } %>
+    </ul>
+</body>
+</html>
