@@ -5,16 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <h1>lista de alumnos</h1>
-    <ul>
+    <h1>lista de celulares</h1>
+<div>
         <% for(var i = 0; i < list.length; i++) { %>
-            <li> 
-                <%= list[i].nombre %> - 
-                <% if(bool) { %> <span> <%= list[i].curso %></span> <% } %> 
-            </li>
+            <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" 
+                        src="<%= list[i].fotoUrl %>" 
+                        alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= list[i].nombre %></h5>
+                      <p class="card-text"><%= list[i].precio %></p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+            </div>
         <% } %>
-    </ul>
+</div>
+    
 </body>
 </html>

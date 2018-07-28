@@ -3,21 +3,24 @@ var app = express();
 
 var bodyParser = require('body-parser');
 
-var alumnos = [
+var celulares = [
     {
-        nombre: 'arturo',
-        apellido: 'liduena',
-        curso: 'backend'
+        nombre: 'iphone 6',
+        descripcion: 'soy un iphone 6',
+        precio: 600,
+        fotoUrl: '/assets/iphone6.png'
     },
     {
-        nombre: 'servando',
-        apellido: 'reyes',
-        curso: 'intro'
+        nombre: 'iphone x',
+        descripcion: 'soy el ultimo iphone',
+        precio: 'muy caro',
+        fotoUrl: '/assets/Iphonex.png'
     },
     {
-        nombre: 'tomi',
-        apellido: 'niño de cobre',
-        curso: 'backend'
+        nombre: 'nokia 110',
+        descripcion: 'viejo',
+        precio: 'muy barato',
+        fotoUrl: '/assets/Nokia-110.jpg'
     }
 ]
 app.use('/assets/', express.static(__dirname + '/public'));
@@ -39,7 +42,7 @@ app.post('/formulario', urlencodedParser,function (req, res) {
     res.redirect('/alumnos')
 })
 
-app.get('/alumnos', function (req, res) {
-    res.render('lista', {list: alumnos, bool: false})
+app.get('/celulares', function (req, res) {
+    res.render('lista', {list: celulares})
 })
 app.listen(3000);
