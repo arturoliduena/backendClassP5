@@ -9,16 +9,18 @@
 </head>
 <body>
     <h1>lista de celulares</h1>
-<div>
+<div class="container" style="display:flex;flex-wrap:wrap;">
         <% for(var i = 0; i < list.length; i++) { %>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 30%; margin: 5px; height: 500px">
                     <img class="card-img-top" 
                         src="<%= list[i].fotoUrl %>" 
-                        alt="Card image cap">
+                        alt="Card image cap"
+                        style="height:300px;width:90%;">
                     <div class="card-body">
                       <h5 class="card-title"><%= list[i].nombre %></h5>
                       <p class="card-text"><%= list[i].precio %></p>
-                      <a href="/celulares/<%= list[i].id%>" class="btn btn-primary">Go somewhere</a>
+                      <a href="/celulares/<%= list[i].id%>" class="btn btn-primary">Go</a>
+                      <a href="/edit/<%= list[i].id%>" class="btn btn-primary">edit</a>
                     </div>
             </div>
         <% } %>

@@ -37,4 +37,28 @@ app.get('/celulares/:code', function (req, res){
 
     res.render('item', { producto: item })
 })
+app.get('/edit/:code', function (req, res){
+    var item;
+    for(var i=0; i < db.length; i++){
+        if(db[i].id == req.params.code){
+            item = db[i]
+        }
+    }
+
+    res.render('formEdit', { producto: item })
+})
+
+app.post('/edit/:id', urlencodedParser, function (req, res){
+    var item;
+    for(var i=0; i < db.length; i++){
+        if(db[i].id == req.params.id){
+            item = db[i]
+        }
+    }
+    console.log(req.body)
+    item.nombre = req.body.nombre;
+    item.descripcion = req.body.descripcion;
+    item.precio = req.body.precio;
+    res.redirect('/celulares')
+})
 app.listen(3000);
