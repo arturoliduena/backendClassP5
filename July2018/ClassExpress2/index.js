@@ -1,28 +1,9 @@
 var express = require('express');
 var app = express();
+var db = require('./db/db.js');
 
 var bodyParser = require('body-parser');
 
-var celulares = [
-    {
-        nombre: 'iphone 6',
-        descripcion: 'soy un iphone 6',
-        precio: 600,
-        fotoUrl: '/assets/iphone6.png'
-    },
-    {
-        nombre: 'iphone x',
-        descripcion: 'soy el ultimo iphone',
-        precio: 'muy caro',
-        fotoUrl: '/assets/Iphonex.png'
-    },
-    {
-        nombre: 'nokia 110',
-        descripcion: 'viejo',
-        precio: 'muy barato',
-        fotoUrl: '/assets/Nokia-110.jpg'
-    }
-]
 app.use('/assets/', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
@@ -43,6 +24,17 @@ app.post('/formulario', urlencodedParser,function (req, res) {
 })
 
 app.get('/celulares', function (req, res) {
-    res.render('lista', {list: celulares})
+    res.render('lista', {list: db})
+});
+
+app.get('/celulares/:code', function (req, res){
+    var item;
+    for(var i=0; i < db.length; i++){
+        if(db[i].id == req.params.code){
+            item = db[i]
+        }
+    }
+
+    res.render('item', { producto: item })
 })
 app.listen(3000);
