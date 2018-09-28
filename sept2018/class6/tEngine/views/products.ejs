@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Productos</h1>
+    <div>
+        <a href="/create" class="btn btn-primary">Create</a>
+    </div>
+    <% listProduct.forEach((item) => { %>
+        <div class="card" style="width: 18rem; min-height: 25rem; float: left; margin: 5px">
+            <img class="card-img-top" src="<%= item.url %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= item.nombre %></h5>
+              <p class="card-text"><%= item.precio %></p>
+              <a href="/item/<%= item.id %>" class="btn btn-primary">Go</a>
+              <a href="/update/<%= item.id %>" class="btn btn-primary">update</a>
+              <a href="/delete/<%= item.id %>" class="btn btn-primary">delete</a>
+            </div>
+          </div>
+    <% }) %>
+</body>
+</html>

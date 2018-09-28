@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/createOrUpdate/<%= item.id %>" method="POST">
+        <label>
+            nombre:
+            <input type="text" name="nombre" value="<%= item.nombre %>">
+        </label>
+        <br>
+        <label>
+            precio:
+            <input type="number" name="precio" value="<%= item.precio %>">
+        </label>
+        <br>
+        <label>
+            descripcion
+            <input type="text" name="descripcion" value="<%= item.descripcion %>">
+        </label>
+        <br>
+        <label>
+            color:
+            <input type="text" name="color" value="<%= item.color %>">
+        </label>
+        <br>
+        <label>
+            url
+            <input type="text" name="url" value="<%= item.url %>">
+        </label>
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
