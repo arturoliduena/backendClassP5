@@ -18,9 +18,9 @@
             <div class="card-body">
               <h5 class="card-title"><%= item.nombre %></h5>
               <p class="card-text"><%= item.precio %></p>
-              <a href="/item/<%= item.id %>" class="btn btn-primary">Go</a>
-              <a href="/update/<%= item.id %>" class="btn btn-primary">update</a>
-              <a href="/delete/<%= item.id %>" class="btn btn-primary">delete</a>
+              <a href="/item/<%= item._id %>" class="btn btn-primary">Go</a>
+              <a href="/update/<%= item._id %>" class="btn btn-primary">update</a>
+              <a href="/delete/<%= item._id %>" class="btn btn-primary">delete</a>
             </div>
           </div>
     <% }) %>
