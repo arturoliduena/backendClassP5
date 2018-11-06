@@ -1,15 +1,14 @@
 {
-  "name": "primerp",
+  "name": "expresstest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "geometry-calculator-x": "^1.0.1"
+    "express": "^4.16.4"
   }
 }
