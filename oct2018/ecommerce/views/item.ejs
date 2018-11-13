@@ -12,8 +12,12 @@
         <div class="card-body">
             <h5 class="card-title"><%= nombre %></h5>
             <h5 class="card-title">precio: $<%= precio %></h5>
-            <h5 class="card-title">precio: $<%= descripcion %></h5>            
-          <a href="/delete%>" class="btn btn-primary">eliminar</a>
+            <h5 class="card-title">descripcion: <%= descripcion %></h5>            
+          <a href="/delete/<%=id%>" class="btn btn-primary">
+            <button>
+                eliminar
+            </button>
+        </a>
         </div>
     </div>    
 </body>

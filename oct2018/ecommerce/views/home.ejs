@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>eCommerce</h1>
-    <a href="/create" class="btn btn-primary">new</a>
+    <a href="/add/0" class="btn btn-primary">new</a>
         <div class="container">
             <div class="row">
                 <% products.forEach(product => { %>
@@ -19,7 +19,8 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%= product.nombre %></h5>
                                 <h5 class="card-title">precio: $<%= product.precio %></h5>
-                              <a href="/product/<%= product.id %>" class="btn btn-primary">Go somewhere</a>
+                              <a href="/product/<%= product.id %>" class="btn btn-primary">Go</a>
+                              <a href="/add/<%= product.id %>" class="btn btn-primary">editar</a>
                             </div>
                         </div>    
                     </div>
