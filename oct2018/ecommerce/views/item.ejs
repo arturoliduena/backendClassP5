@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
@@ -31,19 +32,49 @@
             </nav>
         </header><br /><br />
     <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" style="height: 150px;" src="<%=url%>" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"><%= nombre %></h5>
-                <h5 class="card-title">precio: $<%= precio %></h5>
-                <h5 class="card-title">descripcion: <%= descripcion %></h5>            
-            <a href="/delete/<%=id%>" class="btn btn-primary">
-                <button class="btn-primary">
-                    eliminar
-                </button>
-            </a>
-            </div>
-        </div>
+
+
+            <div class="card mb-3">
+                    <img class="card-img-top" src="<%=url%>" alt="Card image cap">
+                    <div class="card-body"></div>
+                      <h5 class="card-title"><%= nombre %></h5>
+                      <p class="card-text">descripcion: <%= descripcion %></p>
+                      <p class="card-text"><small class="text-muted">precio: $<%= precio %></small></p>
+                      <ul>
+                      <% for(var i=0; i < comments.length ; i++) { %>
+                        <li>
+                            <strong><%= comments[i].user %></strong>
+                            <br>
+                            <span><%= comments[i].text %></span>
+                            <br>
+                            <span><%= comments[i].date %></span>
+                        </li>    
+                    <% } %>
+
+                        </ul>
+
+                      <form method="POST" action="/addcomment/<%=_id%>">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">User</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user" name='user'>
+                        
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Comentario</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='text'></textarea>
+                                </div>
+                        <button type="submit" class="btn btn-primary">Nuevo Comentario</button>
+                    </form>
+
+
+                      <a href="/delete/<%=id%>">
+                        <button class="btn-primary">
+                            eliminar
+                        </button>
+                    </a>
+                    </div>
+                  </div>
+                  </div>
     </div>
 </body>
 </html>

@@ -2,8 +2,23 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+const multer = require('multer');
 
 const Products = require('./src/models/Product');
+const Comments = require('./src/models/Comment');
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, __dirname + "/public");
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.fieldname + Math.random() + ".jpg");
+    }
+  });
+  
+var upload = multer({ storage: storage });
+  
+app.use("/assets/", express.static(__dirname + "/public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -37,7 +52,9 @@ app.get('/edit/:prodId', (req, res) => {
     })
 })
 
-app.post('/add/:prodId', (req, res, next) => {
+app.post('/add/:prodId', upload.single('imgProduct'), (req, res) => {
+    console.log(req.body, req.file)
+    let product = Object.assign(req.body, { url: "assets/" + req.file.filename });
     if(req.params.prodId == 0){
         Products.create(req.body, (err, result) => {
             console.log(err, result)
@@ -52,31 +69,25 @@ app.post('/add/:prodId', (req, res, next) => {
 })
 
 
-
-app.post('/add/:code', (req, res) => {
-    if(req.params.code != 0) {
-        let found = products.find(function(element) {
-            return element.id == req.params.code;
-        });
-        
-        found = Object.assign(found, req.body)
-        
-    } else {
-        products.push(req.body);
-        req.body.id = ++count
-    }
-    
-    res.redirect('/')
-})
-
 app.get('/product/:code', (req, res) => {
-    Products.findById(req.params.code, (err, result) => {
+    Products.findById(req.params.code).populate('comments').exec((err, result) => {
+        console.log('productos', result)
         if(result){
             res.render('item.ejs', result)            
         }else{
             res.json(err.message)
         }
-    })              
+    })
+    
+    /*, (err, result) => {
+        if(result){
+
+            console.log('producto', result)
+            res.render('item.ejs', result)            
+        }else{
+            res.json(err.message)
+        }
+    })*/              
 })
 
 app.get('/delete/:prodId', (req, res) =>{
@@ -85,4 +96,17 @@ app.get('/delete/:prodId', (req, res) =>{
         res.redirect('/')
     })
 })
+
+app.post('/addcomment/:prodId', (req, res) => {
+    Products.findById(req.params.prodId, (err, producto) => {
+        Comments.create(req.body, (err, result) => {
+            producto.comments.push(result)
+            producto.save()
+            res.redirect('/product/'+producto._id)
+        })
+    
+    })
+    
+})
+
 app.listen(4000, () => console.log('listening in port 4000'))
